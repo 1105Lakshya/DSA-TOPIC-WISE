@@ -52,27 +52,33 @@ The time complexity of this algorithm is O(n) and the space complexity is O(1).
 using namespace std;
 
 
-
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-        int n1=INT_MIN;
-        int n2=INT_MIN;
+        int n=nums.size();
+        int num1=0;
+        int num2=0;
+
         int count1=0;
         int count2=0;
-        int n=nums.size();
 
-        for(int i=0 ;i<n ;i++){
-            if(n1==nums[i])count1++;
-            else if(n2==nums[i])count2++;
-            else if(count1==0){
-               n1=nums[i];
-               count1++; 
+        for(int i=0;i<n;i++){
+            if(count1==0 && nums[i]!=num2){
+                num1=nums[i];
+                count1=1;
+                continue;
+            }
+            if(count2==0 && nums[i]!=num1){
+                num2=nums[i];
+                count2=1;
+                continue;
             }
 
-            else if(count2==0){
-               n2=nums[i];
-               count2++;
+            if(num1==nums[i]){
+                count1++;
+            }
+            else if(num2==nums[i]){
+                count2++;
             }
             else{
                 count1--;
@@ -80,31 +86,29 @@ public:
             }
         }
 
-        int target=n/3;
+
+
+        int target=n/3; 
         count1=0;
         count2=0;
-
-        for(int i=0 ;i< n;i++){
-            if(nums[i]==n1){
-                count1++;
-            }
-            if(nums[i]==n2){
-                count2++;
-            }
+        for(int i=0;i<n;i++){
+            if(num1==nums[i])count1++;
         }
 
-        
+        if(num1!=num2){
+        for(int i=0;i<n;i++){
+            if(num2==nums[i])count2++;
+        }    
+        }
         vector<int> ans;
+        
+        if(count1>target)ans.push_back(num1);
+        if(count2>target)ans.push_back(num2);
 
 
-        if(count1>target){
-            ans.push_back(n1);
-        }
-        if(count2>target){
-            ans.push_back(n2);
-        }
 
         return ans;
+        
     }
 };
 

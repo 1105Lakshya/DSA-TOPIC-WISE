@@ -97,6 +97,16 @@ s3=int min
 
 */
 
+//bhayaa humka chiiyee 132 pattern toh hum ka karenge hum rightmost se shuru karengee or next greater element walla challa dengee ab humara stack ka top hoga u tohh greatest element hogga rightmost see ab humme chiiyee 2 132 kaa toh bhaiyya jaaraa sochoo ki next greater element mei stack ka top lekin us se choota lekin sabse baddaa stack ke top se neechee hoggaaa toh kya 132 me humne most optimal range find kardii ab left mei jate jaengee most optimal range mei agar koi number lie karega toh ansewr return kardengee or sath hi sath most optimal range ko bhi update karte hue chalengee aise ayyega answerr
+
+
+
+
+
+
+
+
+
 class Solution {
 public:
         bool find132pattern(vector<int>& nums) {

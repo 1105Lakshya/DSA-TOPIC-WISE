@@ -49,12 +49,7 @@ public:
         }
         for(int i=n-2;i>=0;i--){
             if(ratings[i]>ratings[i+1]){
-                                if(candies[i]==1){
-                    candies[i]=1+candies[i+1];
-                }
-                else{
                     candies[i]=max(candies[i],(candies[i+1]+1));
-                }
             }
         }
     int ans=accumulate(candies.begin(),candies.end(),0);

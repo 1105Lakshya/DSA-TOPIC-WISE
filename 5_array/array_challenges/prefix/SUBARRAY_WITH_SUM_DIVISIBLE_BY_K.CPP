@@ -48,6 +48,30 @@ int subArrayCount(vector<int> &arr, int k) {
     return count;
 }
 
+
+class Solution2 {
+public:
+    int subarraysDivByK(vector<int>& nums, int k) {
+        int n=nums.size();
+        unordered_map<int ,int> mp;
+        mp[0]=1;
+        int sum=0;
+        int ans=0;
+        for(int i=0;i<n;i++){
+            sum+=nums[i];
+            int rem=sum%k;
+            if(rem<0){
+                rem+=k;
+            }
+            ans+=mp[rem];
+            mp[rem]++;
+            
+        }
+
+        return ans;
+    }
+};
+
 int main(){
     
     return 0;

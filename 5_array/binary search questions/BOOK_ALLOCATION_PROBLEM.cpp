@@ -89,55 +89,111 @@
 #include<bits/stdc++.h> 
 using namespace std;
 
-bool IsPossible(vector<int> arr, int n, int m,int mid){
+#include <bits/stdc++.h> 
 
-	int sum=0;
-	for(int i=0;i<n;i++){
-		if(arr[i]>mid)
-			return false;
-		sum+=arr[i];
-		if(sum>mid){
-			
-			sum=0;
-			i--;
-			m--;         //ek bachha use krliyyyyaaaa
-		}
-	}
-	if(m>0){           //bhool se bhi equal to na lagaaa diyoooo
-		return true;
-		
-	}else{
-		return false;
-	}
+ 
+
+bool isPossible(int n, int m, vector<int> time, long long int mid){
+
+    long long int numberfDays= 1;
+
+    long long int numberOfChapter= 0;
+
+ 
+
+    for(int i=0; i<m; i++){
+
+ 
+
+        if(numberOfChapter+ time[i]<=mid){
+
+            numberOfChapter+=time[i];
+
+        }
+
+ 
+
+        else{
+
+            numberfDays++;
+ 
+            if(numberfDays>n || time[i]>mid){
+
+                return false;
+
+            }
+
+            numberOfChapter= time[i];
+
+        }
+
+    }
+
+    return true;
+
+ 
+
 }
 
+ 
 
+long long ayushGivesNinjatest(int n, int m, vector<int> time) 
 
-int allocateBooks(vector<int> arr, int n, int m) {
-	if(n<m){
-		return -1;
-	}
-	int ans=-1;
-int s=0;
-	int sum=0;
-for(int i=0;i<n;i++){
-	sum+=arr[i];
-}
-int e=sum;
-int mid=s+(e-s)/2;
-while(s<=e){
-	if(IsPossible(arr,n,m,mid)){
-		ans=mid;
-		e=mid-1;
-	}
-	else{
-		s=mid+1;
-	}
- mid=s+(e-s)/2;
-}
-return ans;	
-}
+{   
 
+    long long int s=0;
+
+    long long int sum=0;
+
+    for(long long int num: time){
+
+        sum+=num; 
+
+    }
+
+    long long int e= sum;
+
+    long long int ans=-1;
+
+    // Write your code here.
+
+ 
+
+        if(n>m){
+
+            return ans;
+
+        }
+
+ 
+
+    while(s<=e){
+
+        long long int mid= s+(e-s)/2;
+
+ 
+
+        if(isPossible( n,  m, time, mid)){
+
+            ans=mid;
+
+            e= mid-1;
+
+        }
+
+        else{
+
+            s = mid+1;
+
+        }
+
+    }
+
+ 
+
+return ans;
+
+}
 
 int main(){
 	

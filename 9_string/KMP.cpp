@@ -32,11 +32,17 @@ class Solution {
 
         return lps;
     }
+
+
+
+
+
 public:
-    int strStr(string text, string pat) {
+    int strStr(string pat, string text) {
 
         int len1=text.length();
         int len2=pat.length();
+        int ans=0;
         vector<int> lps=make_lps(pat);
 
         int i=0;
@@ -48,7 +54,10 @@ public:
             j++;
         }
         if(j==len2){
-            return i-len2;
+            ans++;
+            // printf("Found pattern at index %d ", i - len2);
+            
+            j = lps[j - 1];
         }
         else if(j!=0){
             j=lps[j-1];

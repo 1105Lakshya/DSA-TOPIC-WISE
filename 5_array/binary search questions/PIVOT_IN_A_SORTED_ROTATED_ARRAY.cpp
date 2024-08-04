@@ -18,7 +18,7 @@ return s;
 }
 
 int main(){
-    int  arr[5]={7,9,10,11,5};
+    int  arr[5]={1,2,3,4,5};
     cout<<"pivot is "<<getPivot(arr,5)<<endl;
     return 0;
 }

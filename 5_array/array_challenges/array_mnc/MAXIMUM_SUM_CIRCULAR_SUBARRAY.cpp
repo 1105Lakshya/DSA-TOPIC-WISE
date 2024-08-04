@@ -1,5 +1,3 @@
-// *****************max subarray sum=total sum of array -sum of non contributing elements*************************************************
-
 /*
 Given a circular integer array nums of length n, return the maximum possible sum of a non-empty subarray of nums.
 
@@ -31,20 +29,9 @@ Constraints:
 n == nums.length
 1 <= n <= 3 * 104
 -3 * 104 <= nums[i] <= 3 * 104
-Accepted
-198.7K
-Submissions
-465.7K
-Acceptance Rate
-42.7%
-Seen this question in a real interview before?
-1/4
-Yes
-No
-Related Topics
+
+
 */
-
-
 
 
 #include<bits/stdc++.h>
@@ -90,11 +77,8 @@ public:
 
     int ans=max(kadane_sum_max,total_sum-kadane_sum_min);
 
-    if(ans==0){
-        ans=nums[0];
-        for(auto &i: nums){
-            ans=max(ans,i);
-        }
+    if(ans<=0){
+       return maxi;
     }
 
 
@@ -103,7 +87,14 @@ return ans;
 };
 
 
+
+
+
 int main(){
+#ifndef ONLINE_JUDGE
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+#endif
     
     return 0;
 }

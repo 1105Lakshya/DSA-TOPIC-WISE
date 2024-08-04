@@ -68,6 +68,8 @@ public:
             pos_time.push_back({p, (double)(target - p)/s});
         }
 
+
+        //sorted on the basis of position 
         sort(pos_time.begin(), pos_time.end());
 
         // for(int i=0;i<n;i++){
@@ -81,6 +83,7 @@ public:
           auto cur_car = pos_time[i];
           double time_required_by_cur_car = cur_car.second;
 
+         // if current car is slower than then next slowest car then it is gonna make its own fleett
           if(time_required_by_cur_car > slowest) {
               fleets++; 
               slowest = pos_time[i].second;

@@ -49,6 +49,9 @@ public:
             if(num==target){
              return true;
             }       
+
+
+            //to handle duplicate condition if mid s and e are same then no decision can be taken of which side is sorted so we shrink the search space by moving s and e inwards
              if(arr[s]==num && num==arr[e]){
                 s++;
                 e--;

@@ -26,8 +26,6 @@ Output :
 Explanation:
 No matter how many times we repeat A, we can't
 get a string such that B is a substring of it.
-
-
 */
 
 

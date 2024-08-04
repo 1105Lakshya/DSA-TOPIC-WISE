@@ -23,7 +23,7 @@ where truck can make a circular tour is
 (index of 2nd petrol pump).
 Your Task:
 Your task is to complete the function tour() which takes the required data as inputs and returns an integer denoting a point from where a truck will be able to complete the circle (The truck will stop at each petrol pump and it has infinite capacity). If there exists multiple such starting points, then the function must return the first one out of those. (return -1 otherwise)
-
+ 
 Expected Time Complexity: O(N)
 Expected Auxiliary Space : O(1)
 
@@ -59,6 +59,13 @@ struct petrolPump
 };*/
 
 /*You are required to complete this method*/
+
+
+//APPROACH 1
+//place two pointer left and right if we can traverse from current then move right else move left =right+1 since agar left se nahi pohoch pare toh right ke piiche jiite bhi the unse bhi ni pohoch paoogee kyu tum us se picche se koi na koi balance petrol toh laooge hi nnaaa soo this is the lovely solution
+
+
+
 
 #include<bits/stdc++.h>
 using namespace std;
