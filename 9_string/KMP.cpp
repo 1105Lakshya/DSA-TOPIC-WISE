@@ -31,15 +31,9 @@ class Solution {
         }
 
         return lps;
-    }
-
-
-
-
-
+}
 public:
     int strStr(string pat, string text) {
-
         int len1=text.length();
         int len2=pat.length();
         int ans=0;

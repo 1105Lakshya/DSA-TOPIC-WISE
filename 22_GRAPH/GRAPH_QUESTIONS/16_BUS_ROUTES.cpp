@@ -36,7 +36,7 @@ class Solution {
 public:
     int numBusesToDestination(vector<vector<int>>& routes, int source, int target) {
         if(source==target)return 0;
-        unordered_map<int,vector<int>>bus;
+        unordered_map<int,vector<int>>bus;//keep track of which buses are travelling on a particular stop
         for(int i=0;i<routes.size();++i)
         {
             for(auto stop:routes[i])
@@ -76,7 +76,52 @@ public:
         return -1;
     }
 };
+// LITTTLE CLEANER CODE
+class Solution {
+public:
+    int numBusesToDestination(vector<vector<int>>& routes, int source, int target) {
+        if(source==target)return 0;
 
+        unordered_map<int ,vector<int>> buses; //keep track of which buses are travelling on a particular stop
+        int n=routes.size(); // no. of buses running  
+        for(int i=0;i<n;i++){
+            for(int stop:routes[i]){
+                buses[stop].push_back(i);
+            }
+        }
+
+        //we will be starting from a particular source node so we can take all the buses running through that stop
+        vector<bool> bus_vis(n,false);
+        queue<int>  q;
+        for(int b:buses[source]){
+            bus_vis[b]=true;
+            q.push(b);
+        }
+        int count=1;
+        while(!q.empty()){
+            int size=q.size();
+            while(size--){
+                int frontbus=q.front();
+                q.pop();
+                for(int stop:routes[frontbus]){
+                    if(stop==target)return count;
+                    for(int curr_stop_buses:buses[stop]){
+                        if(bus_vis[curr_stop_buses]==false){
+                          bus_vis[curr_stop_buses]=true;
+                          q.push(curr_stop_buses);  
+                        }
+                    }
+                }
+            }count++;
+        }
+
+
+
+        return -1;
+
+
+    }
+};
 
 
 int main(){

@@ -168,37 +168,6 @@ void preorderIterative(node* root)
     }
 }
 
-//preorder itereative method leetcode done by lakshya singh singhaniaaa
-/*
-class Solution {
-public:
-    vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> ans;
-        if(root==NULL)return ans;
-        stack<TreeNode*> st;
-        
-        TreeNode* curr=root;
-        while(curr || !st.empty()){
-            if(curr==NULL){
-                curr=st.top();
-                st.pop();
-                curr=curr->right;
-            }
-            else{
-                ans.push_back(curr->val);
-                st.push(curr);
-                curr=curr->left;
-            }
-            
-        }
-        
-        return ans;
-    }
-};
-*/
-
-
-
 
 
 /*********************************POSTORDER USING ITERATIVE AND RECURSIVE APRROACHES*****************************/

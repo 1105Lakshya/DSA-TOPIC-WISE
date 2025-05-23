@@ -33,6 +33,10 @@ int main(){
     for(int i=n/2 ; i>0 ;i--){                // sirf first n/2 nodes process kareeengiii  kyukiii bakki ki leaf nodes hai jo already heap haii so sirf shuruaat walliiyoo ko heapify krnna
     heapify(arr, n , i);                      //0 based indexing mei size/2 -1 se i>=0 takkk
     }
+    // FOR ZERO BASED INDEXING 
+    // for(int i=n/2-1 ; i>=0 ;i--){                // sirf first n/2 nodes process kareeengiii  kyukiii bakki ki leaf nodes hai jo already heap haii so sirf shuruaat walliiyoo ko heapify krnna
+    // heapify(arr, n , i);                      //0 based indexing mei size/2 -1 se i>=0 takkk
+    // }
 
     
     cout<<"printing the array now "<<endl;

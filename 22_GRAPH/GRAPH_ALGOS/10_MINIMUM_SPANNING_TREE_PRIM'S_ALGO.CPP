@@ -112,7 +112,45 @@ parent  array gives us the minimum spaanning treee
 
 #include<bits/stdc++.h>
 using namespace std;
+//####################################################################STRIVER 'S SOLUTION ############################################
 
+class Solution{
+    public:
+    // Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int spanningTree(int V, vector<vector<int>> adj[]) {
+        vector<int> mst(V);//stores the minimum spannig tree 
+        int sum=0;
+        priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<pair<int,pair<int,int>>>> pq;
+        vector<bool> vis(V,false);
+        pq.push({0,{0,-1}});//{weight, {node,parent}}
+        
+        while(!pq.empty()){
+            pair<int,pair<int,int>> top=pq.top();
+            pq.pop();
+            int weight=top.first;
+            int node=top.second.first;
+            int parent=top.second.second;
+            
+            if(vis[node])continue; //if already visisted skip 
+            
+            vis[node]=true;
+            sum+=weight;
+            
+            mst[node]=parent;
+            
+            for(vector<int> &neighbour: adj[node]){
+                int neigh=neighbour[0];
+                int wt=neighbour[1];
+                if(!vis[neigh]){
+                    pq.push({wt,{neigh,node}});
+                }
+            } 
+        }
+        return sum;
+        
+    }
+
+};
 
 //SOLUTION
 #include <unordered_map> 

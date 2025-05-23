@@ -2,10 +2,13 @@
 using namespace std;
 
 int main(){
-#ifndef ONLINE_JUDGE
-freopen("input.txt", "r", stdin);
-freopen("output.txt", "w", stdout);
-#endif
+
+  string str="adnlajfal";
+  int len=0;
+  
+
+
+  cout<<ans<<endl;
   
   return 0;
 }

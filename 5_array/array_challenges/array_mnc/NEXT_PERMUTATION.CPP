@@ -53,7 +53,7 @@ public:
         // }
         int index1=-1;
         for(int i=n-1;i>0;i--){
-            if(arr[i]>arr[i-1]){
+            if(arr[i-1]<arr[i]){
                 index1=i-1;                        // finding the index 
                 break;
             }
